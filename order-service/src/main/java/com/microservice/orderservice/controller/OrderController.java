@@ -18,10 +18,11 @@ import lombok.RequiredArgsConstructor;
 public class OrderController {
 
     private final OrderService orderService;
-    
+
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping()
-    public String placeOrder(@RequestBody OrderRequest orderRequest){
+    public String placeOrder(@RequestBody OrderRequest orderRequest) {
+        System.out.println("OrderRequest : "+ orderRequest);
         orderService.placeOrder(orderRequest);
         return "order create";
     }
